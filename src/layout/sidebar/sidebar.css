@@ -1,0 +1,51 @@
+.app__sidebar {
+  width: 300px;
+  height: 800px;
+  background-color: #fff;
+  margin-left: 25px;
+  border-radius: 25px;
+  padding: 20px;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form__group > label {
+  font-family: "Inter";
+  font-size: 14px;
+}
+select {
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+.app__screenshot {
+  width: 70px;
+  height: 70px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.app__screenshot:active {
+  background-color: bisque;
+}
+
+.app__screenshot {
+  margin: auto;
+  margin-top: 20px;
+}
+
+input {
+  padding: 5px 10px;
+}
+
+.sidebar__form {
+  display: flex;
+  left: auto;
+  flex-direction: column;
+  gap: 20px;
+}
