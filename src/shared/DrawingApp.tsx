@@ -29,7 +29,7 @@ export const DrawingApp = () => {
     ctx.strokeStyle = color;
     ctx.lineWidth = brushSize;
     ctx.lineCap = "round";
-    ctx.lineJoin= "round";
+    ctx.lineJoin = "round";
     ctx.lineTo(offsetX, offsetY);
     ctx.stroke();
   };
@@ -68,13 +68,19 @@ export const DrawingApp = () => {
     if (!ctx) return;
     ctx.clearRect(0, 0, 800, 600);
     setUndoList([]);
-  };  
+  };
   const widthHalf = brushSize ? brushSize / 2 : 0;
 
   const cursor = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000000" opacity="0.3" height="${brushSize}" viewBox="0 0 ${brushSize} ${brushSize}" width="${brushSize}"><circle cx="${widthHalf}" cy="${widthHalf}" r="${widthHalf}" fill="%23000000" /></svg>') ${widthHalf} ${widthHalf}, auto`;
 
 
-  return[ {},{startDrawing, endDrawing,draw,clear,changeBrushSize,changeColor,erase,undo}];
+  return [{
+    cursor, canvasRef,
+    ctx,
+    drawing,
+    color,
+    brushSize,
+    undoList
+  }, { startDrawing, draw, endDrawing, changeBrushSize, clear, changeColor, erase, undo }] as any;
 };
 
-export default DrawingApp;

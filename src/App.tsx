@@ -23,7 +23,7 @@ import Blue from "./component/Blue/Blue";
 import Thank from "./component/thank/Thank";
 import Green from "./component/green/Green";
 import Orange from "./component/Orange/Orange";
-import DrawingApp from "./shared/DrawingApp";
+import { DrawingApp } from "./shared/DrawingApp";
 
 function App() {
   const divRef = useRef<HTMLDivElement>(null);
@@ -33,12 +33,9 @@ function App() {
   };
   const [value, setValue] = useState("alipay");
   const [amount, setAmount] = useState(100);
-  const [customer, setCustomer] = useState("Vivian Yip");
   const [size, setSize] = useState("small");
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  
-
+  const [{ cursor, canvasRef, color }, { startDrawing, draw, endDrawing, ...api }] = DrawingApp()
+  const toolbarProps = { color, ...api }
   return (
     <>
       <Header />
@@ -48,15 +45,20 @@ function App() {
           value={value}
           setvalue={setValue}
           setAmount={setAmount}
-          setCustomer={setCustomer}
           setSize={setSize}
           size={value}
+          {...toolbarProps}
         />
         <div className="content" ref={divRef}>
           <div className="app__canvas">
-            {/* <DrawingApp /> */}
-
-            <canvas  ref={canvasRef as any} />
+            <canvas ref={canvasRef as any}
+              width={360}
+              height={820}
+              style={{ cursor }}
+              onMouseDown={startDrawing}
+              onMouseMove={draw}
+              onMouseUp={endDrawing}
+            />
           </div>
           {value === "800" && size === "small" && <Hkd amount={amount} />}
           {value === "800" && size === "large" && <Bank amount={amount} />}
