@@ -13,8 +13,21 @@ export const DrawingApp = () => {
     if (canvas) {
       const context = canvas.getContext('2d');
       setCtx(context);
+
+      const handleMouseLeave = () => {
+        if (drawing) {
+          setDrawing(false);
+          ctx?.closePath();
+        }
+      };
+
+      window.addEventListener('mouseleave', handleMouseLeave);
+
+      return () => {
+        window.removeEventListener('mouseleave', handleMouseLeave);
+      };
     }
-  }, []);
+  }, [ctx, drawing]);
 
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const { offsetX, offsetY } = e.nativeEvent;
@@ -28,8 +41,8 @@ export const DrawingApp = () => {
     const { offsetX, offsetY } = e.nativeEvent;
     ctx.strokeStyle = color;
     ctx.lineWidth = brushSize;
-    ctx.lineCap = "round";
-    ctx.lineJoin = "round";
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
     ctx.lineTo(offsetX, offsetY);
     ctx.stroke();
   };
@@ -53,7 +66,7 @@ export const DrawingApp = () => {
   };
 
   const erase = () => {
-    setColor('#FFFFFF'); // Set the color to white for erase effect
+    setColor('#FFFFFF');
   };
 
   const changeColor = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,10 +82,10 @@ export const DrawingApp = () => {
     ctx.clearRect(0, 0, canvasRef.current?.width || 0, canvasRef.current?.height || 0);
     setUndoList([]);
   };
+
   const widthHalf = brushSize ? brushSize / 2 : 0;
 
   const cursor = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000000" opacity="0.3" height="${brushSize}" viewBox="0 0 ${brushSize} ${brushSize}" width="${brushSize}"><circle cx="${widthHalf}" cy="${widthHalf}" r="${widthHalf}" fill="%23000000" /></svg>') ${widthHalf} ${widthHalf}, auto`;
-
 
   return [{
     cursor, canvasRef,
