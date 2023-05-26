@@ -17,9 +17,7 @@ function Sidebar({ screenshot, value, setvalue, setAmount, setSize, size
     let data;
   }, [value]);
 
-  if (size !== undefined) {
-    console.log(value);
-  }
+
 
   return (
     <div className="app__sidebar">

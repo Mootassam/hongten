@@ -14,7 +14,7 @@ class Screenshot {
             navigator.clipboard
               .write([item])
               .then(() => {
-                console.log("Screenshot copied to clipboard");
+                // console.log("Screenshot copied to clipboard");
               })
               .catch((error) => {
                 console.error("Error copying screenshot to clipboard:", error);

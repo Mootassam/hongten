@@ -4,7 +4,7 @@ class Number {
       style: "currency",
       currency: "HKD",
     });
-    console.log(hongkongCurrency);
+
     return hongkongCurrency;
   }
 
