@@ -81,6 +81,8 @@ function App() {
           {value === "green" && <Green amount={amount} />}
           {value === "orange" && <Orange amount={amount} />}
         </div>
+        <div></div>
+        <div></div>
       </div>
     </>
   );

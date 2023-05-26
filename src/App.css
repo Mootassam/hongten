@@ -5,8 +5,8 @@ body {
 .app__content {
   padding-top: 20px;
   display: flex;
-  gap: 28px;
-  width: max-content;
+  justify-content: space-between;
+
 }
 
 .app__canvas {
