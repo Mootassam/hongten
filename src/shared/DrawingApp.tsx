@@ -66,7 +66,7 @@ export const DrawingApp = () => {
 
   const clear = () => {
     if (!ctx) return;
-    ctx.clearRect(0, 0, 800, 600);
+    ctx.clearRect(0, 0, canvasRef.current?.width || 0, canvasRef.current?.height || 0);
     setUndoList([]);
   };
   const widthHalf = brushSize ? brushSize / 2 : 0;
