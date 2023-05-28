@@ -111,6 +111,7 @@
   border-radius: 2px;
   padding: 1px;
   align-items: center;
+ 
 }
 
 .alipyabar {
@@ -127,7 +128,7 @@
 
 .battt__ {
   position: relative;
-  display: inline-block;
+  display: flex;
   align-items: center;
   gap: 0.6px;
   height: 11px;

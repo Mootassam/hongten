@@ -30,8 +30,9 @@ function Alipay(props) {
                     width: `${limit}%`,
                   }}
                 ></div>
+          
               </div>
-
+              <div className="alipay__borderbattery"></div>
             </div>
           </div>
         </div>
