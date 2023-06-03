@@ -24,10 +24,10 @@ import Thank from "./component/thank/Thank";
 import Green from "./component/green/Green";
 import Orange from "./component/Orange/Orange";
 import { DrawingApp } from "./shared/DrawingApp";
+import RedCross from "./component/RedCross/RedCross";
 
 function App() {
   const divRef = useRef<HTMLDivElement>(null);
-
   const handleCaptureScreenshot = () => {
     Screenshot.handleCaptureScreenshot(divRef);
   };
@@ -96,6 +96,7 @@ function App() {
           {value === "blue" && <Blue amount={amount} />}
           {value === "green" && <Green amount={amount} />}
           {value === "orange" && <Orange amount={amount} />}
+          {/* {value === "redCross" && <RedCross  amount={amount} />} */}
         </div>
         <div></div>
         <div></div>

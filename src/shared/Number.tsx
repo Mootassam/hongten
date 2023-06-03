@@ -4,7 +4,6 @@ class Number {
       style: "currency",
       currency: "HKD",
     });
-
     return hongkongCurrency;
   }
 
@@ -36,12 +35,10 @@ class Number {
   }
 
   static generateRandom7Number(){ 
-
     const min = 1000000;
     const max = 9999999; 
     const randomNumber  =  Math.floor(Math.random() * (max - min +1) ) + min;
     return randomNumber
-
   }
 
   static getRandomItem(arr) {
