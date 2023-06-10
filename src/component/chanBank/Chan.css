@@ -22,7 +22,7 @@
 
 .chan__right {
   display: flex;
-  align-items: first baseline;
+  align-items: center;
   gap: 4px;
 }
 
