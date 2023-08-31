@@ -5,7 +5,6 @@ import Names from "../../shared/Names";
 import Dates from "../../shared/dates";
 function Scpay(props) {
   const limit = Math.floor(Math.random() * (100 - 6 + 1)) + 6;
-
   return (
     <div className="app__scpay">
       <div className="scpay__header">

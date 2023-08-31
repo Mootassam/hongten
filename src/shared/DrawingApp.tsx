@@ -51,7 +51,7 @@ export const DrawingApp = () => {
     if (!ctx) return;
     ctx.closePath();
     setDrawing(false);
-    setUndoList([...undoList, ctx.getImageData(0, 0, 800, 600)]);
+    setUndoList([...undoList, ctx.getImageData(0, 0, 800, 800)]);
   };
 
   const undo = () => {
@@ -59,7 +59,7 @@ export const DrawingApp = () => {
     const newUndoList = [...undoList];
     newUndoList.pop();
     setUndoList(newUndoList);
-    ctx.clearRect(0, 0, 800, 600);
+    ctx.clearRect(0, 0, canvasRef.current?.width || 0, canvasRef.current?.height || 0);
     newUndoList.forEach((data) => {
       ctx.putImageData(data, 0, 0);
     });
